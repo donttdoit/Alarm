@@ -33,7 +33,11 @@ class Alarm:
         arr[0].stop()
 
     def set_type(self, type_sound):
-        pass
+        if type(type_sound) != int:
+            raise TypeError('Выбранная мелодия должна быть в формате "int"')
+        if type_sound not in [1, 2, 3]:
+            raise ValueError('Выбранная мелодия может быть только в диапазоне: 1 - 3')
+        self.__type = type_sound
 
     def set_hour(self, hour):
         if type(hour) != int:
