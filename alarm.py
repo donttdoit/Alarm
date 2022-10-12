@@ -47,7 +47,11 @@ class Alarm:
         self.__dt = datetime.datetime(self.__dt.year, self.__dt.month, self.__dt.day, hour, self.__dt.minute)
 
     def set_minute(self, minute):
-        pass
+        if type(minute) != int:
+            raise TypeError('Минуты должны быть в формате "int"')
+        if minute < 0 or minute > 59:
+            raise ValueError('Минуты должны находиться в диапазоне: 0 - 59')
+        self.__dt = datetime.datetime(self.__dt.year, self.__dt.month, self.__dt.day, self.__dt.hour, minute)
 
     def get_type(self):
         return self.__type
