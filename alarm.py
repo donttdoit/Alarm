@@ -36,7 +36,11 @@ class Alarm:
         pass
 
     def set_hour(self, hour):
-        pass
+        if type(hour) != int:
+            raise TypeError('Часы должны быть в формате "int"')
+        if hour < 0 or hour > 23:
+            raise ValueError('Час должен находиться в диапазоне: 0 - 23')
+        self.__dt = datetime.datetime(self.__dt.year, self.__dt.month, self.__dt.day, hour, self.__dt.minute)
 
     def set_minute(self, minute):
         pass
